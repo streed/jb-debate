@@ -1,0 +1,9 @@
+services:
+  debate-bot:
+    build: .
+    container_name: jb-debate-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production

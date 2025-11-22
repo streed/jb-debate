@@ -11,8 +11,7 @@
   "dependencies": {
     "discord.js": "^14.14.1",
     "ollama": "^0.5.11",
-    "dotenv": "^16.3.1",
-    "duck-duck-scrape": "^2.2.5"
+    "dotenv": "^16.3.1"
   },
   "engines": {
     "node": ">=18.0.0"
