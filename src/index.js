@@ -150,7 +150,7 @@ async function startDebate(message, subject) {
     try {
       thread = await message.startThread({
         name: `Debate: ${subject.substring(0, 90)}`,
-        autoArchiveDuration: 1440, // 24 hours
+        autoArchiveDuration: 60, // 1 hour (Discord minimum)
       });
     } catch (threadError) {
       if (threadError.message.includes('thread has already been created')) {
