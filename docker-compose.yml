@@ -1,9 +1,22 @@
 services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: jb-debate-ollama
+    restart: unless-stopped
+    volumes:
+      - ollama_data:/root/.ollama
+
   debate-bot:
     build: .
     container_name: jb-debate-bot
     restart: unless-stopped
+    depends_on:
+      - ollama
     env_file:
       - .env
     environment:
       - NODE_ENV=production
+      - OLLAMA_HOST=http://ollama:11434
+
+volumes:
+  ollama_data:
