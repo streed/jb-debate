@@ -7,16 +7,17 @@ services:
       - ollama_data:/root/.ollama
 
   debate-bot:
-    build: .
+    image: ${BOT_IMAGE:-ghcr.io/streed/jb-debate:latest}
     container_name: jb-debate-bot
     restart: unless-stopped
     depends_on:
       - ollama
-    env_file:
-      - .env
     environment:
       - NODE_ENV=production
       - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3.2}
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY}
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
 
 volumes:
   ollama_data:
