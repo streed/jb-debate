@@ -3,6 +3,8 @@ services:
     image: ollama/ollama:latest
     container_name: jb-debate-ollama
     restart: unless-stopped
+    environment:
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY}
     volumes:
       - ollama_data:/root/.ollama
 
